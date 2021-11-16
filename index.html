@@ -5,44 +5,20 @@
     <link rel = 'stylesheet' href="style.css"></link>
   </head>
   <body>
-    <table>
-      <tr>
-        <th colspan="2">To do list</th>
-      </tr>
-      <tr>              
-        <td id='usersInputTd'>
-          <form>
-            <input type='text' id="usersInput">
-            </form>
-        </td>
-        <td class='buttons-align'>
-          <form><input type='button' id ='addTaskButton' value='Add task'></form>
-        </td>
-      </tr>
-      <div id='taskList'>
-      <tr>
-        <td>
-          <form><input type="checkbox"><label>Do groceries</label></form>
-        </td>
-        <td class='buttons-align'>
-          <form><input type="button" value="Rename"></form>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <form>
-            <input type="checkbox" checked>
-            <label><del>Do laundry</del></label>
-            </form>
-        </td>
-       </tr>
-      <tr>
-        <td>
-          <form><input type='button' value="x"><label><del>Learn JavaScript</del></label></form>
-        </td>
-      </tr>
-      </div>
-    </table>
+<div id='mainBody'>
+   <h1>To do list</h1>
+   <form>
+      <input type="text" id="usersInput"><input type="button" id="addTaskButton" value="Add task">
+    </form>
+  <div>
+    <form id="taskList">
+      <input type="checkbox" id="taskCheck1"><label id="task1">Do groceries</label><input type="button" id='renameButton1'value="Rename"><br>
+      <input type="checkbox" checked><label><del>Do laundry</del></label><br>
+      <input type="button" value="x"><label><del>Learn JavaScript</del></label>
+    </form>
+  </div>
+
+  </div>
     <script src="script.js"></script>
   </body>
 </html>
