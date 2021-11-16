@@ -1,20 +1,23 @@
-"use strict";
+'use strict';
 
-const usersInput = document.querySelector("#usersInput");
-const taskList = document.querySelector("#taskList");
+const usersInput = document.querySelector('#usersInput');
+const taskList = document.querySelector('#taskList');
+const addTaskButton = document.querySelector('#addTaskButton');
+const renameButton = document.querySelector('#renameButton1');
 
-document.querySelector("#addTaskButton").addEventListener("click", function () {
-  console.log(usersInput.value);
-
+addTaskButton.addEventListener('click', function () {
   const html = `
-  <tr>
-    <td>
-        <form><input type="checkbox"><label>${usersInput.value}</label></form>
-    </td>
-    <td class='buttons-align'>
-        <form><input type="button" value="Rename"></form>
-    </td>
-  </tr>`;
+  <input type="checkbox">
+  <label>${usersInput.value}</label>
+  <input type="button" class='rename-button'value="Rename"><br>`;
 
-  Element.insertAdjacentHTML(beforebegin, html);
+  taskList.insertAdjacentHTML('afterbegin', html);
+
+  usersInput.value = '';
+});
+
+renameButton.addEventListener('click', function () {
+  const task = document.getElementById('task1').textContent;
+  console.log(task);
+  taskList.removeChild(document.getElementById('task1'));
 });
