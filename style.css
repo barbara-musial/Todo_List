@@ -1,12 +1,9 @@
 div {
   border: 1px solid black;
-  width: 50%;
+  width: 80%;
 }
 
 #taskList {
   width: 100%;
   box-sizing: border-box;
-}
-
-.rename-button {
 }
