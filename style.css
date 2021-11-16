@@ -1,36 +1,12 @@
-table {
-  margin: auto;
-  width: 40%;
-  border: 3px solid green;
-  padding: 10px;
-}
-
-td,
-th {
+div {
   border: 1px solid black;
+  width: 50%;
 }
 
-th {
-  font-size: 30px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border: 1px solid black;
-}
-
-td {
-  font-size: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border: 1px solid black;
-}
-
-#usersInput {
+#taskList {
   width: 100%;
   box-sizing: border-box;
 }
-#usersInputTd {
-  width: auto;
-}
 
-.buttons-align {
-  text-align: right;
-  width: 60px;
+.rename-button {
 }
