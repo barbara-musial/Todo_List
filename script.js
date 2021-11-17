@@ -1,23 +1,25 @@
 "use strict";
 let tasks = [];
 
-const usersInput = document.getElementById("usersInput");
-const tasksList = document.getElementById("tasksList");
-const addTaskButton = document.getElementById("addTaskButton");
+const usersInput = document.querySelector(".usersInput");
+const tasksList = document.querySelector(".tasksList");
+const addTaskButton = document.querySelector(".addTaskButton");
 
 addTaskButton.addEventListener("click", function () {
   tasks.push(usersInput.value);
 
+  const taskNumber = tasks.length;
+  const newTask = usersInput.value;
   const html = `
-  <div id="n${tasks.length}">
-    <div id="task${tasks.length}">
-      <input type="checkbox" id="taskCheck${tasks.length}" onclick="checkboxChecked(${tasks.length})">
-      <label id="taskContent${tasks.length}">${usersInput.value}</label>
-      <input type="button" id='renameButton${tasks.length}' onclick='renameTask(${tasks.length})' value="Rename">
-      <input type="button" id='deleteButton${tasks.length}' onclick="deleteTask(${tasks.length})" value="X" style="display: none">
+  <div class="n n${taskNumber}">
+    <div class="task task${taskNumber}">
+      <input type="checkbox" class="taskCheck taskCheck${taskNumber}" onclick="checkboxChecked(${taskNumber})">
+      <label class="taskContent taskContent${taskNumber}">${newTask}</label>
+      <input type="button" class='renameButton renameButton${taskNumber}' onclick='renameTask(${taskNumber})' value="Rename">
+      <input type="button" class='deleteButton deleteButton${taskNumber}' onclick="deleteTask(${taskNumber})" value="X" style="display: none">
     </div>
-    <div id="taskRename${tasks.length}" style="display: none">
-      <input type="text" id="renamedTask${tasks.length}" value="${usersInput.value}"><input type="button" onclick="submitTaskRename(${tasks.length})" value="✔">
+    <div class="taskRename taskRename${taskNumber}" style="display: none">
+      <input type="text" class="renamedTask renamedTask${taskNumber}" value="${newTask}"><input type="button" onclick="submitTaskRename(${taskNumber})" value="✔">
     </div>
   </div>`;
 
@@ -26,18 +28,18 @@ addTaskButton.addEventListener("click", function () {
 });
 
 const renameTask = function (taskNumber) {
-  const taskRename = document.getElementById(`taskRename${taskNumber}`);
-  const task = document.getElementById(`task${taskNumber}`);
+  const taskRename = document.querySelector(`.taskRename${taskNumber}`);
+  const task = document.querySelector(`.task${taskNumber}`);
 
   task.style.display = "none";
   taskRename.style.display = "block";
 };
 
 const submitTaskRename = function (taskNumber) {
-  const renamedTask = document.getElementById(`renamedTask${taskNumber}`).value;
-  const taskRename = document.getElementById(`taskRename${taskNumber}`);
-  const task = document.getElementById(`task${taskNumber}`);
-  const taskContent = document.getElementById(`taskContent${taskNumber}`);
+  const renamedTask = document.querySelector(`.renamedTask${taskNumber}`).value;
+  const taskRename = document.querySelector(`.taskRename${taskNumber}`);
+  const task = document.querySelector(`.task${taskNumber}`);
+  const taskContent = document.querySelector(`.taskContent${taskNumber}`);
 
   taskRename.style.display = "none";
   task.style.display = "block";
@@ -46,10 +48,10 @@ const submitTaskRename = function (taskNumber) {
 };
 
 const checkboxChecked = function (taskNumber) {
-  const taskContent = document.getElementById(`taskContent${taskNumber}`);
-  const checkbox = document.getElementById(`taskCheck${taskNumber}`);
-  const deleteButton = document.getElementById(`deleteButton${taskNumber}`);
-  const renameButton = document.getElementById(`renameButton${taskNumber}`);
+  const taskContent = document.querySelector(`.taskContent${taskNumber}`);
+  const checkbox = document.querySelector(`.taskCheck${taskNumber}`);
+  const deleteButton = document.querySelector(`.deleteButton${taskNumber}`);
+  const renameButton = document.querySelector(`.renameButton${taskNumber}`);
 
   if (checkbox.checked) {
     taskContent.style.color = "red";
@@ -65,6 +67,6 @@ const checkboxChecked = function (taskNumber) {
 };
 
 const deleteTask = function (taskNumber) {
-  const taskToDelete = document.getElementById(`n${taskNumber}`);
+  const taskToDelete = document.querySelector(`.n${taskNumber}`);
   tasksList.removeChild(taskToDelete);
 };

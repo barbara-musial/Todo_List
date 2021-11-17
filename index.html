@@ -5,21 +5,22 @@
     <link rel = 'stylesheet' href="style.css"></link>
   </head>
   <body>
-    <div id='mainBody'>
+    <div class='mainBody'>
       <h1>To do list</h1>
       <form>
-        <input type="text" id="usersInput"><input type="button" id="addTaskButton" value="Add task">
+        <input type="text" class="usersInput"><input type="button" class="addTaskButton" value="Add task">
       </form>
-      <form id="tasksList">
-        <div id="n0">
-          <div id="task0">
-            <input type="checkbox" id="taskCheck0" onclick="checkboxChecked(0)"><label id="taskContent0">Do groceries</label><input type="button" id='renameButton0' onclick='renameTask(0)' value="Rename"><br>
+      <form class="tasksList">
+        <div class="n n0">
+          <div class="task task0">
+            <input type="checkbox" class="taskCheck taskCheck0" onclick="checkboxChecked(0)">
+            <label class="taskContent taskContent0">Wash dishes</label>
+            <input type="button" class='renameButton renameButton0' onclick='renameTask(0)' value="Rename">
+            <input type="button" class='deleteButton deleteButton0' onclick="deleteTask(0)" value="X" style="display: none">
           </div>
-          <div id="taskRename0">
-            <input type="text" id="renamedTask0" value="Do groceries"><input type="button" onclick="submitTaskRename(0)" value="✔"><br>
+          <div class="taskRename taskRename0" style="display: none">
+            <input type="text" class="renamedTask renamedTask0" value="Wash dishes"><input type="button" onclick="submitTaskRename(0)" value="✔">
           </div>
-          <input type="checkbox" checked><label><del>Do groceries</del></label><br>
-          <input type="button" value="x"><label><del>Do groceries</del></label>
         </div>
       </form>
     <script src="script.js"></script>
